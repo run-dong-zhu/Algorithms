@@ -9,7 +9,7 @@ def max_crossing_subarray(arr, l, m, r):
     left_sum = Decimal('-Infinity')
     max_sum = 0
     max_left = 0
-    for index in range(m, l, -1):
+    for index in range(m, 0, -1):
         max_sum += arr[index]
         if max_sum > left_sum:
             left_sum = max_sum
@@ -39,7 +39,7 @@ def max_subarray_recurrsive(arr, l, r):
         rightlow, righthigh, right_sum = max_subarray_recurrsive(arr, mid+1, r)
         #right_sum = sum(arr[i] for i in range(rightlow, righthigh))
 
-        crosslow, crosshigh, cross_sum = max_crossing_subarray(arr, l, (l+r)/2, r)
+        crosslow, crosshigh, cross_sum = max_crossing_subarray(arr, l, (l+r)/2, r+1)
         #cross_sum = sum(arr[i] for i in range(crosslow, crosshigh))
 
         if left_sum > right_sum and left_sum > cross_sum:
