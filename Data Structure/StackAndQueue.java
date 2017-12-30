@@ -4,7 +4,7 @@ public class StackAndQueue {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//StackAndQueue sq = new StackAndQueue();
+
 		Stack s = new Stack(5);
 		System.out.println(s.isEmpty());
 		s.pop();
@@ -16,6 +16,15 @@ public class StackAndQueue {
 		s.push("o");
 		s.push("!");
 		
+		Queue q = new Queue(5);
+		q.enqueue("A");
+		q.enqueue("B");
+		q.enqueue("C");
+		q.enqueue("D");
+		q.enqueue("E");
+		q.enqueue("F");
+		q.enqueue("G");
+		q.dequeue();
 	}
 	
 	public static class Stack {
@@ -52,6 +61,38 @@ public class StackAndQueue {
 				System.out.println(stack[top] + " has been deleted.");
 				top = top - 1;
 			}
+		}
+	}
+	
+	public static class Queue {
+		private String[] queue;
+		private int queueSize;
+		private int head;
+		private int tail;
+		
+		Queue(int size) {
+			queueSize = size;
+			queue = new String[size];
+			head = 0;
+			tail = 0;
+		}
+		
+		public void enqueue(String x) {
+			queue[tail] = x;
+			if(tail == queueSize - 1)
+				tail = 0;
+			else
+				tail = tail + 1;
+			System.out.println(x + " enqueue, tail index: " + tail);
+		}
+		
+		public void dequeue() {
+			String x = queue[head];
+			if(head == queueSize - 1)
+				head = 0;
+			else
+				head = head + 1;
+			System.out.println(x + " dequeue, head index: " + head);
 		}
 	}
 
