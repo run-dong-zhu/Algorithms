@@ -41,7 +41,18 @@ def prod(l):
 def is_palindrome(n):
     if str(n) == str(n)[::-1] :
         return True
-    
+
+
+# sorted()
+L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+
+def sort_by_grade(l):
+    return sorted(l)
+
+
+def sort_by_name(l):
+    return sorted(l)
+
 
 def main():
     print add(5, -5, abs)
@@ -50,6 +61,8 @@ def main():
     print str2int('13579')
     print prod([3, 7, 5, 9])
     print list(filter(is_palindrome, range(0, 1000)))
+    print sorted(L, key = sort_by_grade, reverse=True)
+    print sort_by_name(L)
 
 if __name__ == "__main__":
     main()
