@@ -36,12 +36,20 @@ def prod(l):
 
     return reduce(mul, l)
 
+
+# filter()
+def is_palindrome(n):
+    if str(n) == str(n)[::-1] :
+        return True
+    
+
 def main():
     print add(5, -5, abs)
     print list(map(normalize, ['adam', 'LISA', 'barT']))
     print list(map(f_cubic, [1, 2, 3, 4, 5]))
     print str2int('13579')
     print prod([3, 7, 5, 9])
+    print list(filter(is_palindrome, range(0, 1000)))
 
 if __name__ == "__main__":
     main()
