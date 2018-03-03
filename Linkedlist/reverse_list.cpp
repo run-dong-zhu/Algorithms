@@ -8,23 +8,29 @@
 
 #include <iostream>
 
+
 struct ListNode {
     int val;
     ListNode *next;
     ListNode(int x) : val(x), next(NULL) {}
 };
 
-/*
 void print_list(ListNode* head) {
     while(head) {
-        printf("%d %p %p\n", head->val, head, head->next);
+        if(head->next) {
+            printf("%d %s", head->val, "->");
+        }
+        else {
+            printf("%d\n", head->val);
+        }
         head = head->next;
     }
 }
 
-ListNode reverse_list_1(ListNode* head) {
+
+ListNode* reverse_list_1(ListNode* head) {
     //create new_head node
-    ListNode *new_head = NULL;
+    ListNode* new_head = NULL;
     
     while(head) {
         ListNode *next = head->next;
@@ -33,9 +39,8 @@ ListNode reverse_list_1(ListNode* head) {
         head = next;
     }
     
-    return *new_head;
+    return new_head;
 }
-*/
 
 int main(int argc, const char * argv[]) {
     // init five nodes
@@ -51,24 +56,10 @@ int main(int argc, const char * argv[]) {
     c.next = &d;
     d.next = &e;
     
+    printf("%s\n", "before reverse:");
+    print_list(&a);
+    printf("%s\n", "after reverse:");
+    print_list(reverse_list_1(&a));
     
-    ListNode *head = &a;
-    ListNode *new_head = NULL;
-    //print_list(reverse_list_1(head));
-    
-    
-    while(head) {
-        ListNode *next = head->next;
-        head->next = new_head;
-        new_head = head;
-        //printf("%d %p %p\n", head->val, head, head->next);
-        head = next;
-    }
-    
-    
-    while(new_head) {
-        printf("%d %p %p\n", new_head->val, new_head, new_head->next);
-        new_head = new_head->next;
-    }
     return 0;
 }
